@@ -1,55 +1,66 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+# React HighCharts
 
-# React Tutorial
+Render HighCharts with React.js using JSON data.  This is a basic, working template of a bar chart with React that anyone can pull and start working on.
 
-This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html).
+![alt text](https://github.com/jasonganub/react-highcharts/blob/master/screenshots/HighChartsScreenshot.PNG "Screenshot of a HighCharts example")
 
-## To use
+## Examples
 
-There are several simple server implementations included. They all serve static files from `public/` and handle requests to `/api/comments` to fetch or add data. Start a server with one of the following:
-
-### Node
-
-```sh
-npm install
-node server.js
+```javascript
+var chartInstance = new Highcharts.Chart(chartOptions);
+this.setState({
+  chartInstance: chartInstance
+});
 ```
 
-### Python
-
-```sh
-pip install -r requirements.txt
-python server.py
+```javascript
+var chart = React.render(
+  React.createElement(Chart, {
+    seriesModel: seriesObject,
+    chartModel: chartObject}),
+  document.getElementById('example')
+);
 ```
 
-### Ruby
-```sh
-ruby server.rb
+```javascript
+var seriesObject = [{
+      name: 'Year 1800',
+      data: [107, 31, 635, 203, 2]
+  }, {
+      name: 'Year 1900',
+      data: [133, 156, 947, 408, 6]
+  }, {
+      name: 'Year 2008',
+      data: [973, 914, 4054, 732, 34]
+}];
 ```
 
-### PHP
-```sh
-php server.php
-```
+## Installation
 
-### Go
-```sh
-go run server.go
-```
+Download the full directory as a zip to use it as a template.
 
-### Perl
+## Usage
 
-```sh
-cpan Mojolicious
-perl server.pl
-```
+The JSON data is modifiable within src/chart.js in the seriesObject array.
 
-And visit <http://localhost:3000/>. Try opening multiple tabs!
+JSX users: src/chart.js
 
-## Changing the port
+JavaScript users: build/chart.js
 
-You can change the port number by setting the `$PORT` environment variable before invoking any of the scripts above, e.g.,
+###### Note for JSX users:
 
-```sh
-PORT=3001 node server.js
-```
+Be sure to transform your JSX file into a JavaScript file.
+ex: src/chart.js -> build/chart.js
+
+## History
+
+1.0.0 Initial release
+
+## Credits
+
+With the help of Justin Woo's Mori implementation, I minimized the solution to a working basic template.  If you would like a resizable chart, view his implementation at this link.  https://github.com/justinwoo/highcharts-mori-test
+
+## License
+
+React is BSD licensed.
+Highcharts is free for a personal or non-profit project under the Creative Commons Attribution-NonCommercial 3.0 License.
